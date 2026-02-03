@@ -77,3 +77,25 @@ header h1 {
 .recipe-card li {
   margin-bottom: 6px;
 }
+
+/* Unused, local loading is too fast to be really usefuyl */
+.throttle{
+  width: 5em;
+  height: 5em;
+
+  animation: rotate linear 1s infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+@keyframes rotate{
+  0%{
+    rotate: 0deg;
+  }
+  100%{
+    rotate: 360deg;
+  }
+}
