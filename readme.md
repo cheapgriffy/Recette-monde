@@ -29,3 +29,16 @@ Cela vous permettra de valider la compétence suivante :
 ## Authors
 
 - [@bryanParisot](https://github.com/BryanParisot)
+
+
+## Utilisation
+
+Le projet fonctionne nativement en local, clonez le projet dans un dossier de votre **serveur web**. ou dans un **live server**
+Par defaut le projet cherche ses **données** dans ```./assets/data/recette.json```
+
+Dans le cas ou une **autré donnée** doit étre utilisé, il sufit de change le champs **url** de ```getData()```
+
+La routine du script est la suivante:
+- ```init()``` fait le rendu du tout, elle est appeller qu'une seul fois
+- un **Event listener** est posé sur toutes les cartes, celui si appelle ```fullScreenPreview()``` et affiche les donnée supplementaire de la recette.
+- un autre **Event listener** ce charge de rafraichir les cartes en fonction de l'onglet **recherche**
