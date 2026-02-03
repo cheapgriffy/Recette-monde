@@ -29,6 +29,26 @@ async function init(){
     });
 }
 
+
+/**
+ * Prevent undefined value to be parsed in label
+ * ex: 1 undefined onion
+ * @param {recipe_object} element
+ * @returns html li element 
+ */
+function parseIngredientLabel(element){
+        let added = document.createElement("li")
+
+        if(element.quantity != undefined){
+            added.innerHTML += element.quantity + " "
+        }
+        if(element.unit != undefined){
+            added.innerHTML += element.unit + " "
+        }
+        added.innerHTML += element.ingredient
+        return added
+}
+
 /**
  * Returns a card
  * @param {"recipes" object} card 
@@ -40,8 +60,7 @@ function createCard(card){
     let ingredient_part = document.createElement("ul")
     card.ingredients.forEach(element => {
         let added = document.createElement("li")
-        added.innerHTML = `${element.quantity} ${element.unit} ${element.ingredient}`
-        ingredient_part.appendChild(added)
+        ingredient_part.appendChild(parseIngredientLabel(element))
     });
 
     // summon list on card template
@@ -77,9 +96,7 @@ function fullScreenPreview(card_oject){
     // ingredient management
     let ingredient_list = document.createElement("ul")
     card_oject.ingredients.forEach(element => {
-        let added = document.createElement("li")
-        added.innerHTML = `${element.quantity} ${element.unit} ${element.ingredient}`
-        ingredient_list.appendChild(added)
+        ingredient_list.appendChild(parseIngredientLabel(element))
     });
 
     //apply template
